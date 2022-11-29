@@ -4,6 +4,24 @@
 
 **Still under active development. Use at your own risk.**
 
+# Example
+
+```typescript
+import * as Core from 'kizz';
+import connectToDatabase from './db';
+
+connectToDatabase()
+        .then(async () => {
+                const app = new Core.Application();
+                const server = new Core.Server();
+                await app.bootstrap();
+                return { app, server };
+        })
+        .then(async ({ server, app }) => {
+                await server.listen(app, 8080);
+        });
+```
+
 ## Dependency Injection
 
 ### @Injectable
