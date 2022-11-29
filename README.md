@@ -4,6 +4,15 @@
 
 **Still under active development. Use at your own risk.**
 
+- [Example](#example)
+- [Dependency Injection](#dependency-injection)
+  - [@Injectable](#injectable) 
+  - [@Inject](#inject) 
+- [Decorators](#decorators)
+  - [@Path]()
+  - [@RouteMethods](#routemethods-get-put-post-delete)
+  - [@ValidationPipeline](#validationpipeline)
+
 ## Example
 
 ```typescript
