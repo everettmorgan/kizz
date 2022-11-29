@@ -70,7 +70,7 @@ export default FooController {}
 
 ```typescript
 @Core.Path('/foo')
-export default FooController {
+export default class FooController {
     
     @Core.Get()
     bar(ctx: Core.RouteContext<{}, {}>) {
@@ -81,6 +81,7 @@ export default FooController {
     baz(ctx: Core.RouteContext<{ id: string; }, { foo: string; }>) {
         console.log(ctx.params.id);
         console.log(ctx.body.foo);
+        ctx.send(200, { body: { message: 'Hello world!' } });
     }
 }
 ```
@@ -107,13 +108,14 @@ function validateBaz(this: { body: { foo?: string; } }): ValidationError[] {
 }
 
 @Core.Path('/foo')
-export default FooController {
+export default class FooController {
     
-    @Core.ValidationPipeline([validateBaz'])
+    @Core.ValidationPipeline([validateBaz])
     @Core.Post('/:id/bar')
     baz(ctx: Core.RouteContext<{ id: string; }, { foo: string; }>) {
         console.log(ctx.params.id);
         console.log(ctx.body.foo);
+        ctx.send(200, { body: { message: 'Hello world!' } });
     }
 }
 ```
