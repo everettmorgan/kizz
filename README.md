@@ -4,7 +4,7 @@
 
 **Still under active development. Use at your own risk.**
 
-# Example
+## Example
 
 ```typescript
 import * as Core from 'kizz';
