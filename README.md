@@ -4,9 +4,9 @@
 
 **Still under active development. Use at your own risk.**
 
-# Dependency Injection
+## Dependency Injection
 
-## @Injectable
+### @Injectable
 
 ```typescript
 import * as Core from 'kizz';
@@ -38,7 +38,7 @@ export default class MyService {
 }
 ```
 
-## @Inject
+### @Inject
 
 ```typescript
 import * as Core from 'kizz';
