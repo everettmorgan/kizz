@@ -8,7 +8,7 @@
 
 ## @Injectable
 
-```typescript=
+```typescript
 import * as Core from 'kizz';
 import MyService, { IMyService } from './services/myService';
 
@@ -59,7 +59,7 @@ export default class MyController {
 
 ### @Path
 
-```typescript=
+```typescript
 import * as Core from 'kizz';
 
 @Core.Path('/foo')
@@ -68,7 +68,7 @@ export default FooController {}
 
 ### @RouteMethods (@Get, @Put, @Post, @Delete)
 
-```typescript=
+```typescript
 @Core.Path('/foo')
 export default FooController {
     
@@ -87,7 +87,7 @@ export default FooController {
 
 ### @ValidationPipeline
 
-```typescript=
+```typescript
 interface ValidationError {
         key: string;
         message: string;
