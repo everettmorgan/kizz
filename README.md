@@ -9,7 +9,7 @@
   - [@Injectable](#injectable) 
   - [@Inject](#inject) 
 - [Decorators](#decorators)
-  - [@Path]()
+  - [@Path](#path)
   - [@RouteMethods](#routemethods-get-put-post-delete)
   - [@ValidationPipeline](#validationpipeline)
 
