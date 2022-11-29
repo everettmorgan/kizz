@@ -23,6 +23,14 @@ function RouteMethod(method: string, relativePath: string = '') {
         };
 }
 
+export function Get(route?: string) { return RouteMethod('GET', route); }
+
+export function Post(route?: string) { return RouteMethod('POST', route); }
+
+export function Put(route?: string) { return RouteMethod('PUT', route); }
+
+export function Delete(route?: string) { return RouteMethod('DELETE', route); }
+
 export function StatusCodes(statuses: KV<string>) {
         return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
                 const [_, instances] = Injector.instances.get(ApplicationRouter)!;
@@ -47,16 +55,14 @@ export function ValidationPipeline(pipes: any[]) {
         };
 }
 
-export function Get(route?: string) { return RouteMethod('GET', route); }
-
-export function Post(route?: string) { return RouteMethod('POST', route); }
-
-export function Put(route?: string) { return RouteMethod('PUT', route); }
-
-export function Delete(route?: string) { return RouteMethod('DELETE', route); }
-
 export function Guard(guards: any[]) {
         return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+                const [_, instances] = Injector.instances.get(ApplicationRouter)!;
+                const handler = (instances.Application as ApplicationRouter)
+                        .handlerByControllerNameAndMethod
+                        .get(target.constructor.name)!
+                        .get(propertyKey)!;
 
+                handler.guards = guards;
         };
 }

@@ -3,6 +3,7 @@ import { Internal, Injectable } from './Injection';
 
 interface IHttpMethodHandler {
         handler: Function;
+        guards: string[];
         validators: Function[];
         customStatusCodes: KV<string>;
 }
@@ -138,6 +139,7 @@ export default class ApplicationRouter {
 
                 route.methods[opts.method] = {
                         handler: opts.target[opts.propertyKey],
+                        guards: [],
                         validators: [],
                         customStatusCodes: {},
                 };
