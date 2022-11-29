@@ -73,7 +73,12 @@ export function Inject<A extends { new(...args: any[]): {} }>(dependencies: { [k
                                         }
 
                                         const instances = Injector.instances.get(Dep);
-                                        const argz = instances?.[0];
+                                        const argz = instances?.[0].map((arg) => {
+                                                if (typeof arg === 'function') {
+                                                        return arg();
+                                                }
+                                                return arg;
+                                        });
                                         const list = instances?.[1];
 
                                         if (list?.[cls.name]) {
